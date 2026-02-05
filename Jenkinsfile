@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   environment {
-    DOCKERHUB_USER = 'ton_dockerhub_username'
+    DOCKERHUB_USER = 'gabsiuuu'
     IMAGE_PREFIX = 'caas-healthcare'
   }
 
