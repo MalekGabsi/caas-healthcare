@@ -15,6 +15,7 @@ spec:
       containers:
         - name: patient-service
           image: gabsiuuu/caas-healthcare-patient:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 4001
           env:

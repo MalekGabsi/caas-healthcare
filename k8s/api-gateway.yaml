@@ -17,6 +17,7 @@ spec:
       containers:
         - name: api-gateway
           image: gabsiuuu/caas-healthcare-api-gateway:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 4000
           env:
