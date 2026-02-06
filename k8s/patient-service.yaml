@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: patient-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: patient-service
+  template:
+    metadata:
+      labels:
+        app: patient-service
+    spec:
+      containers:
+        - name: patient-service
+          image: gabsiuuu/caas-healthcare-patient:latest
+          ports:
+            - containerPort: 4001
+          env:
+            - name: MONGO_URI
+              value: "mongodb://mongo:27017/healthcare_core"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: patient-service
+spec:
+  selector:
+    app: patient-service
+  ports:
+    - port: 4001
+      targetPort: 4001
