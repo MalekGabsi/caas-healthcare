@@ -6,6 +6,10 @@ pipeline {
     IMAGE_PREFIX = 'caas-healthcare'
   }
 
+  triggers {
+    pollSCM('*/5 * * * *') 
+  }
+
   stages {
     stage('Checkout') {
       steps {
