@@ -24,7 +24,9 @@ pipeline {
         docker build -t $DOCKERHUB_USER/$IMAGE_PREFIX-api-gateway backend/api-gateway
         docker build -t $DOCKERHUB_USER/$IMAGE_PREFIX-patient backend/patient-service
         docker build -t $DOCKERHUB_USER/$IMAGE_PREFIX-appointment backend/appointment-service
-        docker build -t $DOCKERHUB_USER/$IMAGE_PREFIX-frontend frontend
+        docker build \
+          --build-arg VITE_API_BASE=http://192.168.49.2:31784 \
+          -t $DOCKERHUB_USER/$IMAGE_PREFIX-frontend:$VERSION frontend
         '''
       }
     }
