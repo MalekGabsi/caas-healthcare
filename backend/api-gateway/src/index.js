@@ -15,7 +15,7 @@ const patientTarget = process.env.PATIENT_SERVICE_URL || "http://localhost:4001"
 const appointmentTarget = process.env.APPOINTMENT_SERVICE_URL || "http://localhost:4002";
 
 app.use(
-    "/api/patients",
+    "/patients",
     createProxyMiddleware({
       target: patientTarget,
       changeOrigin: true,
@@ -25,7 +25,7 @@ app.use(
   );
   
   app.use(
-    "/api/appointments",
+    "/appointments",
     createProxyMiddleware({
       target: appointmentTarget,
       changeOrigin: true,
