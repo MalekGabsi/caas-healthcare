@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Prefer build-time env, but default to same-origin API via Ingress
-const API_BASE = import.meta.env.VITE_API_BASE || "/api";
+const API_BASE = import.meta.env.VITE_API_BASE || "/";
 
 export const http = axios.create({
   baseURL: API_BASE,
